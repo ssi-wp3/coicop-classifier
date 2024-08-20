@@ -180,4 +180,8 @@ This looks as follows:
 }
 ```
 
+As can be seen in the `coicop_classification_result` part of the above JSON message, for each receipt text `id`, an array `coicop_codes`
+is returned with the classifier confidence per COICOP code. For each COICOP code, also a description is given back. For instance, COICOP
+011130 corresponds to "Bread" and COICOP 011830 corresponds to chocolate.
+
 For a complete example see [classified_jumbo_receipt1.json](./example_receipts/classified_jumbo_receipt1.json)
