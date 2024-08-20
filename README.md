@@ -214,6 +214,6 @@ is returned with the classifier confidence per COICOP code. For each COICOP code
 
 For a complete example see [classified_jumbo_receipt1.json](./example_receipts/classified_jumbo_receipt1.json)
 
-## License
+## Licence
 
 This code has been developed at Statistics Netherlands as part of the EuroStat SSI project and therefore is published under the [EU Public Licence](./LICENSE).
