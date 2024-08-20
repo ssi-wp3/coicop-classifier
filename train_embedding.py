@@ -21,7 +21,7 @@ print(f"Using data directory: {data_directory}")
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input-filename",
                     default=os.path.join(
-                        data_directory, "feature_extraction/ssi_hf_labse_unique_values.parquet"))
+                        data_directory, "input_data/ssi_hf_labse_unique_values.parquet"))
 parser.add_argument("-o", "--output-directory",
                     type=str, default=os.path.join(data_directory, "models"))
 parser.add_argument("-m", "--model-name", type=str,
@@ -33,7 +33,7 @@ parser.add_argument("-b", "--batch-size", type=int, default=32)
 parser.add_argument("-ic", "--input-column", type=str,
                     default="receipt_text")
 parser.add_argument("-lc", "--label-column", type=str,
-                    default="coicop_level_1")
+                    default="coicop_number")
 parser.add_argument("-ef", "--evaluation-function", type=str, default="f1")
 parser.add_argument("-es", "--evaluation-strategy", type=str, default="epoch")
 parser.add_argument("-u", "--keep-unknown", action="store_true")
@@ -133,7 +133,8 @@ model = AutoModelForSequenceClassification.from_pretrained(
 
 
 # Create output directory
-model_directory = os.path.join(args.output_directory, args.model_name)
+model_directory = os.path.join(args.output_directory, "huggingface")
+model_directory = os.path.join(model_directory, args.model_name)
 date = pd.Timestamp.now().strftime("%Y-%m-%d-%H-%M-%S")
 model_directory = os.path.join(model_directory, date)
 
