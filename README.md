@@ -42,7 +42,7 @@ The `train_embedding.py` script has the following parameters:
 | `-i`          | `--input-filename`      | Path to the input file                                                                          | `os.path.join(data_directory, "input_data/ssi_hf_labse_unique_values.parquet")` |
 | `-o`          | `--output-directory`    | Path to the output directory                                                                    | `os.path.join(data_directory, "models")`    |
 | `-m`          | `--model-name`          | Huggingface sentence transformers model name                                                    | `"sentence-transformers/LaBSE"`                               |
-| `-s`          | `--sample-size`         | Number of samples to use from the total dataset. These samples are split over train, validation and test datasets. | `None`                                                       |
+| `-s`          | `--sample-size`         | Number of samples to use from the total dataset. These samples are split over train, validation and test datasets. | `None` (means all)                                                      |
 | `-e`          | `--epochs`              | Number of epochs                                                                                | `3`                                                    |
 | `-b`          | `--batch-size`          | Batch size                                                                                      | `32`                                                        |
 | `-ic`         | `--input-column`        | Name of the input column                                                                        | `"receipt_text"`                                             |
