@@ -18,7 +18,39 @@ are also available in the `example_receipts` directory.
 The `predict_coicop.py` script can be used as follows:
 
 ```cli
-
+{
+    # Which receipt items to classify
+    "coicop_classification_request": ["123abc", "456def"],
+    # The identified items on the receipt (products and price)
+    "receipt": {
+        "store": "Jumbo",
+        "date": "2024-05-01",
+        "items": [
+            {   
+                "id": "123abc",
+                "description": "JUMBO LUSDRAAGTAS",
+                "quantity": 1,
+                "unit_price": 0.75,
+                "total_price": 0.75
+            },
+            {
+                "id": "456def",
+                "description": "MINI RB ROZIJNENBOL",
+                "quantity": 1,
+                "unit_price": 1.79,
+                "total_price": 1.79
+            },
+        ]
+        # The total price for all items on the receipt
+        "total": 2.54,
+        # The currency
+        "currency": "EUR",
+        # An optional language hint
+        "language_hint": "nl",
+        # Possibly some metadata
+        "metadata": null
+    }
+}
 ```
 
 ## Input file structure
