@@ -101,6 +101,83 @@ The output file contains all information from the input file and adds the classi
 This looks as follows:
 
 ```json
-
+{
+    # Which receipt items to classify
+    "coicop_classification_request": ["123abc", "456def"],
+    # The identified items on the receipt (products and price)
+    "receipt": {
+        "store": "Jumbo",
+        "date": "2024-05-01",
+        "items": [
+            {   
+                "id": "123abc",
+                "description": "JUMBO LUSDRAAGTAS",
+                "quantity": 1,
+                "unit_price": 0.75,
+                "total_price": 0.75
+            },
+            {
+                "id": "456def",
+                "description": "MINI RB ROZIJNENBOL",
+                "quantity": 1,
+                "unit_price": 1.79,
+                "total_price": 1.79
+            },
+        ]
+        # The total price for all items on the receipt
+        "total": 2.54,
+        # The currency
+        "currency": "EUR",
+        # An optional language hint
+        "language_hint": "nl",
+        # Possibly some metadata
+        "metadata": null
+    },
+    "coicop_classification_result": {
+        "result": [
+            {
+                "id": "123abc",
+                "coicop_codes": [
+                    {
+                        "code": "011140",
+                        "description": " Overige bakkerijproducten ",
+                        "confidence": 0.1767372339963913
+                    },
+                    {
+                        "code": "011940",
+                        "description": " Kant-en-klaarmaaltijden ",
+                        "confidence": 0.11907301098108292
+                    },
+                    {
+                        "code": "011830",
+                        "description": " Chocolade ",
+                        "confidence": 0.07663311064243317
+                    },
+                ...
+            },
+            {
+            "id": "456def",
+            "coicop_codes": [
+                {
+                    "code": "011130",
+                    "description": " Brood ",
+                    "confidence": 0.6990135312080383
+                },
+                {
+                    "code": "011140",
+                    "description": " Overige bakkerijproducten ",
+                    "confidence": 0.23259545862674713
+                },
+                {
+                    "code": "011830",
+                    "description": " Chocolade ",
+                    "confidence": 0.009536930359899998
+                },
+                ...
+            }
+        ]
+    }
+}
 ```
 
+For a complete example see [classified_jumbo_receipt1.json](./example_receipts/classified_jumbo_receipt1.json)
