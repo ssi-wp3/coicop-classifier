@@ -13,11 +13,35 @@ An example file is available in the `coicop_mapping` directory. If such file is 
 script also returns human readable descriptions as part of the predictions. Example receipts in JSON format 
 are also available in the `example_receipts` directory.
 
+## Before the installation
+
+The `predict_coicop.py` script has been tested with Python 3.11.
+Before using the script install its dependencies with:
+
+```cli
+pip install -r requirements.txt
+```
+
+This command should be executed from the root directory of this project where
+the `requirements.txt` file is located.
+
 ## Usage
 
 The `predict_coicop.py` script can be used as follows:
 
 ```cli
+python predict_coicop.py
+```
+
+This command should be executed from the root directory of this project where
+the `predict_coicop.py` file is located.
+
+
+## Input file structure
+
+The input file structure looks as follows:
+
+```json
 {
     # Which receipt items to classify
     "coicop_classification_request": ["123abc", "456def"],
@@ -51,14 +75,6 @@ The `predict_coicop.py` script can be used as follows:
         "metadata": null
     }
 }
-```
-
-## Input file structure
-
-The input file structure looks as follows:
-
-```json
-
 ```
 
 ## Output file structure
