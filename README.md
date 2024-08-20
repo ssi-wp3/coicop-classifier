@@ -25,6 +25,32 @@ pip install -r requirements.txt
 This command should be executed from the root directory of this project where
 the `requirements.txt` file is located.
 
+## Training a model
+
+If you want to train/fine-tune your own models use the `train_embedding.py` script. This script can
+fine-tune an existing HuggingFace sentence-transformer with custom provided data. The data should
+be put in the `input_data` folder with a format as described [here](./input_data/README.md). By default,
+the `train_embedding.py` script downloads and fine-tunes a LaBSE models. Other pre-trained models can be
+found [here](https://huggingface.co/sentence-transformers). It is sufficient to pass a model path to the
+`-m` parameter to choose a different model, for instance `sentence-transformers/all-MiniLM-L6-v2` can
+be used to download the `all-MiniLM-L6-v2` model and fine-tune it using a custom dataset.
+
+The `train_embedding.py` script has the following parameters:
+
+| Short Command | Long Command            | Description                                                                                     | Default                                                      |
+|---------------|-------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| `-i`          | `--input-filename`      | Path to the input file                                                                          | `os.path.join(data_directory, "input_data/ssi_hf_labse_unique_values.parquet")` |
+| `-o`          | `--output-directory`    | Path to the output directory                                                                    | `os.path.join(data_directory, "models")`    |
+| `-m`          | `--model-name`          | Huggingface sentence transformers model name                                                    | `"sentence-transformers/LaBSE"`                               |
+| `-s`          | `--sample-size`         | Number of samples to use from the total dataset. These samples are split over train, validation and test datasets. | `None`                                                       |
+| `-e`          | `--epochs`              | Number of epochs                                                                                | `3`                                                    |
+| `-b`          | `--batch-size`          | Batch size                                                                                      | `32`                                                        |
+| `-ic`         | `--input-column`        | Name of the input column                                                                        | `"receipt_text"`                                             |
+| `-lc`         | `--label-column`        | Name of the label column                                                                        | `"coicop_number"`                                            |
+| `-ef`         | `--evaluation-function` | Evaluation function                                                                             | `"f1"`                                                       |
+| `-es`         | `--evaluation-strategy` | Evaluation strategy                                                                             | `"epoch"`                                                    |
+| `-u`          | `--keep-unknown`        | Flag to keep unknown values                                                                     | `False` (flag not set)                                       |
+
 ## Usage
 
 The `predict_coicop.py` script can be used as follows:
