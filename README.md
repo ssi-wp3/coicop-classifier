@@ -33,6 +33,25 @@ The `predict_coicop.py` script can be used as follows:
 python predict_coicop.py --pp models/huggingface/<model dir> -pt hugging_face -i example_receipts/jumbo_receipt1.json -o /path/to/output/folder/jumbo_receipt1_classified.json -c coicop_mapping/coicop_1999_mapping.csv
 ```
 
+This command classifies all the receipt texts in `example_receipts/jumbo_receipt1.json`
+and writes them to the `/path/to/output/folder/jumbo_receipt1_classified.json` file.
+It furthermore uses the `coicop_mapping/coicop_1999_mapping.csv` file as a lookup table
+to find descriptions for the COICOP labels found.
+
+The `predict_coicop.py` script has the following parameters:
+
+| Short Command | Long Command                   | Description                                      |
+|---------------|--------------------------------|--------------------------------------------------|
+| `-pp`         | `--pipeline-path`              | Path to pipeline                                 |
+| `-pt`         | `--pipeline-type`              | Type of pipeline to use for prediction           |
+| `-i`          | `--input-data`                 | Path to the input json file                      |
+| `-o`          | `--output-data`                | Path to the output json file                     |
+| `-c`          | `--coicop-code-list`           | Path to the COICOP code list/ mapping                     |
+| `-d`          | `--delimiter`                  | Delimiter for the COICOP code list (default ";" )              |
+| `-cc`         | `--coicop-column`              | Column name for the COICOP code in the COICOP mapping file (default: "coicop_number")                |
+| `-cn`         | `--coicop-description-column`  | Column name for the COICOP name in the COICOP mapping file (default: "coicop_name" )                  |
+| `-p`          | `--params`                     | Path to the params json file (optional)          |
+
 This command should be executed from the root directory of this project where
 the `predict_coicop.py` file is located.
 

@@ -31,9 +31,9 @@ if __name__ == "__main__":
                         required=True, help="Path to pipeline")
     parser.add_argument("-pt", "--pipeline-type", type=CoicopPipelineType, choices=list(CoicopPipelineType),
                         default=CoicopPipelineType.hugging_face, help="Type of pipeline to use for prediction")
-    parser.add_argument("-i", "--input_data", type=str,
+    parser.add_argument("-i", "--input-data", type=str,
                         required=True, help="Path to the input json file")
-    parser.add_argument("-o", "--output_data", type=str,
+    parser.add_argument("-o", "--output-data", type=str,
                         required=True, help="Path to the output json file")
     parser.add_argument("-c", "--coicop-code-list", type=str,
                         default=None, help="Path to the COICOP code list")
