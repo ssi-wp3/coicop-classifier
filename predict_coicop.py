@@ -36,7 +36,7 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output-data", type=str,
                         required=True, help="Path to the output json file")
     parser.add_argument("-c", "--coicop-code-list", type=str,
-                        default=None, help="Path to the COICOP code list")
+                        default="coicop_mapping/coicop_1999_mapping.csv", help="Path to the COICOP code list")
     parser.add_argument("-d", "--delimiter", type=str,
                         default=";", help="Delimiter for the COICOP code list")
     parser.add_argument("-cc", "--coicop-column", type=str,
