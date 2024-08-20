@@ -30,12 +30,11 @@ the `requirements.txt` file is located.
 The `predict_coicop.py` script can be used as follows:
 
 ```cli
-python predict_coicop.py
+python predict_coicop.py --pp models/huggingface/<model dir> -pt hugging_face -i example_receipts/jumbo_receipt1.json -o /path/to/output/folder/jumbo_receipt1_classified.json -c coicop_mapping/coicop_1999_mapping.csv
 ```
 
 This command should be executed from the root directory of this project where
 the `predict_coicop.py` file is located.
-
 
 ## Input file structure
 
