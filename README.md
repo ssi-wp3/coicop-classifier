@@ -213,3 +213,7 @@ is returned with the classifier confidence per COICOP code. For each COICOP code
 011130 corresponds to "Bread" and COICOP 011830 corresponds to chocolate.
 
 For a complete example see [classified_jumbo_receipt1.json](./example_receipts/classified_jumbo_receipt1.json)
+
+## License
+
+This code has been developed as part of the EuroStat SSI project and therefore is published under the [EU Public Licence](./LICENSE)
