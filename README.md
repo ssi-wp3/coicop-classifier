@@ -49,7 +49,7 @@ The `train_embedding.py` script has the following parameters:
 | `-lc`         | `--label-column`        | Name of the label column                                                                        | `"coicop_number"`                                            |
 | `-ef`         | `--evaluation-function` | Evaluation function                                                                             | `"f1"`                                                       |
 | `-es`         | `--evaluation-strategy` | Evaluation strategy                                                                             | `"epoch"`                                                    |
-| `-u`          | `--keep-unknown`        | Flag to keep unknown values                                                                     | `False` (flag not set)                                       |
+| `-u`          | `--keep-unknown`        | Flag to keep unknown values, i.e. receipt texts with COICOP label 999999                                                                     | `False` (flag not set)                                       |
 
 ## Usage
 
