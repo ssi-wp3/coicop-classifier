@@ -216,4 +216,4 @@ For a complete example see [classified_jumbo_receipt1.json](./example_receipts/c
 
 ## License
 
-This code has been developed as part of the EuroStat SSI project and therefore is published under the [EU Public Licence](./LICENSE)
+This code has been developed at Statistics Netherlands as part of the EuroStat SSI project and therefore is published under the [EU Public Licence](./LICENSE).
