@@ -32,8 +32,8 @@ fine-tune an existing HuggingFace sentence-transformer with custom provided data
 be put in the `input_data` folder with a format as described [here](./input_data/README.md). By default,
 the `train_embedding.py` script downloads and fine-tunes a LaBSE models. Other pre-trained models can be
 found [here](https://huggingface.co/sentence-transformers). It is sufficient to pass a model path to the
-`-m` parameter to choose a different model, for instance `sentence-transformers/all-MiniLM-L6-v2` can
-be used to download the `all-MiniLM-L6-v2` model and fine-tune it using a custom dataset.
+`-m` parameter to choose a different model, for instance `sentence-transformers/LaBSE` can
+be used to download the `LaBSE` model and fine-tune it using a custom dataset.
 
 The `train_embedding.py` script has the following parameters:
 
@@ -41,7 +41,7 @@ The `train_embedding.py` script has the following parameters:
 |---------------|-------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
 | `-i`          | `--input-filename`      | Path to the input file                                                                          | `$data_directory/input_data/ssi_hf_labse_unique_values.parquet` |
 | `-o`          | `--output-directory`    | Path to the output directory                                                                    | `$data_directory/models`    |
-| `-m`          | `--model-name`          | Huggingface sentence transformers model name                                                    | `"sentence-transformers/LaBSE"`                               |
+| `-m`          | `--model-name`          | Huggingface sentence transformers model name                                                    | `"sentence-transformers/all-MiniLM-L6-v2"`                               |
 | `-s`          | `--sample-size`         | Number of samples to use from the total dataset. These samples are split over train, validation and test datasets. | `None` (means all)                                                      |
 | `-e`          | `--epochs`              | Number of epochs                                                                                | `3`                                                    |
 | `-b`          | `--batch-size`          | Batch size                                                                                      | `32`                                                        |

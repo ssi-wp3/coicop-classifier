@@ -25,7 +25,7 @@ parser.add_argument("-i", "--input-filename",
 parser.add_argument("-o", "--output-directory",
                     type=str, default=os.path.join(data_directory, "models"))
 parser.add_argument("-m", "--model-name", type=str,
-                    default="sentence-transformers/LaBSE", help="Huggingface sentence transformers model name")
+                    default="sentence-transformers/all-MiniLM-L6-v2", help="Huggingface sentence transformers model name")
 parser.add_argument("-s", "--sample-size", type=int, default=None,
                     help="Number of samples to use from the total dataset. These samples are split over train, validation and test datasets.")
 parser.add_argument("-e", "--epochs", type=int, default=3)
