@@ -51,7 +51,7 @@ The `train_embedding.py` script has the following parameters:
 | `-es`         | `--evaluation-strategy` | Evaluation strategy                                                                             | `"epoch"`                                                    |
 | `-u`          | `--keep-unknown`        | Flag to keep unknown values, i.e. receipt texts with COICOP label 999999                                                                     | `False` (flag not set)                                       |
 
-Note that if `$data_directory` is not set, the current directory (`.`) will be used.
+Note that if `$data_directory` is not set, the current directory (`.`) will be used. Note that a GPU is advised to train these models.
 
 ## Usage
 
