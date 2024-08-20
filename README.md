@@ -39,8 +39,8 @@ The `train_embedding.py` script has the following parameters:
 
 | Short Command | Long Command            | Description                                                                                     | Default                                                      |
 |---------------|-------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| `-i`          | `--input-filename`      | Path to the input file                                                                          | `os.path.join(data_directory, "input_data/ssi_hf_labse_unique_values.parquet")` |
-| `-o`          | `--output-directory`    | Path to the output directory                                                                    | `os.path.join(data_directory, "models")`    |
+| `-i`          | `--input-filename`      | Path to the input file                                                                          | `$data_directory/input_data/ssi_hf_labse_unique_values.parquet` |
+| `-o`          | `--output-directory`    | Path to the output directory                                                                    | `$data_directory/models`    |
 | `-m`          | `--model-name`          | Huggingface sentence transformers model name                                                    | `"sentence-transformers/LaBSE"`                               |
 | `-s`          | `--sample-size`         | Number of samples to use from the total dataset. These samples are split over train, validation and test datasets. | `None` (means all)                                                      |
 | `-e`          | `--epochs`              | Number of epochs                                                                                | `3`                                                    |
@@ -50,6 +50,8 @@ The `train_embedding.py` script has the following parameters:
 | `-ef`         | `--evaluation-function` | Evaluation function                                                                             | `"f1"`                                                       |
 | `-es`         | `--evaluation-strategy` | Evaluation strategy                                                                             | `"epoch"`                                                    |
 | `-u`          | `--keep-unknown`        | Flag to keep unknown values, i.e. receipt texts with COICOP label 999999                                                                     | `False` (flag not set)                                       |
+
+Note that if `$data_directory` is not set, the current directory (`.`) will be used.
 
 ## Usage
 
