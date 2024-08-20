@@ -15,7 +15,26 @@ are also available in the `example_receipts` directory.
 
 ## Usage
 
+The `predict_coicop.py` script can be used as follows:
+
+```cli
+
+```
 
 ## Input file structure
 
+The input file structure looks as follows:
+
+```json
+
+```
+
 ## Output file structure
+
+The output file contains all information from the input file and adds the classification.
+This looks as follows:
+
+```json
+
+```
+
