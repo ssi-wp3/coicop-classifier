@@ -53,6 +53,9 @@ The `train_embedding.py` script has the following parameters:
 
 Note that if `$data_directory` is not set, the current directory (`.`) will be used. Note that a GPU is advised to train these models.
 
+The model will be exported in a directory with the current date. The training process also saves intermediate snapshots in that directory.
+The final model is located in the `final` directory.
+
 ## Usage
 
 The `predict_coicop.py` script can be used as follows:
