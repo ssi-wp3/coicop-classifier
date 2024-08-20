@@ -43,7 +43,7 @@ The `predict_coicop.py` script has the following parameters:
 | Short Command | Long Command                   | Description                                      |
 |---------------|--------------------------------|--------------------------------------------------|
 | `-pp`         | `--pipeline-path`              | Path to pipeline                                 |
-| `-pt`         | `--pipeline-type`              | Type of pipeline to use for prediction           |
+| `-pt`         | `--pipeline-type`              | Type of pipeline to use for prediction, either "hugging_face" or " sklearn", (default: "hugging_face")          |
 | `-i`          | `--input-data`                 | Path to the input json file                      |
 | `-o`          | `--output-data`                | Path to the output json file                     |
 | `-c`          | `--coicop-code-list`           | Path to the COICOP code list/ mapping                     |
