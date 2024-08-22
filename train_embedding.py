@@ -109,6 +109,7 @@ train_df = train_df.remove_columns([args.input_column])
 val_df = val_df.remove_columns([args.input_column])
 test_df = test_df.remove_columns([args.input_column])
 
+print(f"Training {args.model_name} for {args.epochs} epochs")
 print(
     f"Train dataset length: {len(train_df)}, Val dataset length: {len(val_df)}, Test dataset length: {len(test_df)}")
 number_of_categories = hf_labse_features[args.label_column].nunique()
