@@ -113,7 +113,9 @@ if not args.keep_unknown:
         hf_labse_features, label_column=args.label_column)
 
 labels_to_drop, hf_labse_features = drop_labels_with_few_samples(
-    hf_labse_features, args.label_column).reset_index()
+    hf_labse_features, args.label_column)
+
+hf_labse_features = hf_labse_features.reset_index()
 print(
     f"Dropped labels: {labels_to_drop} as they have less than 10 samples")
 
