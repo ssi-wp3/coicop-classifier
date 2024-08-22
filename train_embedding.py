@@ -73,11 +73,6 @@ def split_data(dataframe: pd.DataFrame,
                val_size: float = 0.1,
                test_size: float = 0.2,
                random_state: int = 42) -> Tuple[Dataset, Dataset]:
-    labels_to_drop, dataframe = drop_labels_with_few_samples(
-        dataframe, coicop_level)
-    print(
-        f"Dropped labels: {labels_to_drop} as they have less than 10 samples")
-
     train_val_dataframe, test_dataframe = train_test_split(
         dataframe, test_size=test_size, stratify=dataframe[coicop_level], random_state=random_state)
 
@@ -116,6 +111,11 @@ hf_labse_features = hf_labse_features[[args.input_column, args.label_column]]
 if not args.keep_unknown:
     hf_labse_features = drop_unknown(
         hf_labse_features, label_column=args.label_column)
+
+labels_to_drop, hf_labse_features = drop_labels_with_few_samples(
+    hf_labse_features, args.label_column).reset_index()
+print(
+    f"Dropped labels: {labels_to_drop} as they have less than 10 samples")
 
 sample_size = args.sample_size
 if sample_size is not None:
