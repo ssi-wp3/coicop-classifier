@@ -16,7 +16,6 @@ import json
 # %%
 # "/netappdata/ssi_tdjg/data/ssi/"
 data_directory = os.getenv("data_directory", default=".")
-print(f"Using data directory: {data_directory}")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input-filename",
@@ -109,9 +108,11 @@ train_df = train_df.remove_columns([args.input_column])
 val_df = val_df.remove_columns([args.input_column])
 test_df = test_df.remove_columns([args.input_column])
 
-print(f"Training {args.model_name} for {args.epochs} epochs")
+print(f"Using data directory: {data_directory}")
 print(
-    f"Train dataset length: {len(train_df)}, Val dataset length: {len(val_df)}, Test dataset length: {len(test_df)}")
+    f"Training {args.model_name} on {args.input_filename} for {args.epochs} epochs")
+print(
+    f"Train dataset length: {len(train_df)}, Val dataset length: {len(val_df)}, Test dataset length: {len(test_df)} \n\n")
 number_of_categories = hf_labse_features[args.label_column].nunique()
 number_of_categories
 
