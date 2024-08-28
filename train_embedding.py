@@ -39,6 +39,39 @@ parser.add_argument("-u", "--keep-unknown", action="store_true")
 args = parser.parse_args()
 
 
+def write_model_card_markdown(filename: str,
+                              args,
+                              dataset: pd.DataFrame,
+                              train_df: pd.DataFrame,
+                              val_df: pd.DataFrame,
+                              test_df: pd.DataFrame):
+    model_card_markdown = f"""
+# Model card for {args.model_name}
+
+## Model details    
+- Model name: {args.model_name}
+- Input column: {args.input_column}
+- Label column: {args.label_column}
+- Evaluation function: {args.evaluation_function}
+- Evaluation strategy: {args.evaluation_strategy}
+- Keep unknown: {args.keep_unknown}
+- Epochs: {args.epochs}
+- Batch size: {args.batch_size}
+- Output directory: {args.output_directory}
+
+## Dataset details
+- Input filename: {args.input_filename}
+- Number of total samples: {len(dataset)}
+- Training samples: {len(train_df)} ({len(train_df) / len(dataset)}%)
+- Validation samples: {len(val_df)} ({len(val_df) / len(dataset)}%)
+- Test samples: {len(test_df)} ({len(test_df) / len(dataset)}%)
+- Total number of receipt texts: {dataset[args.input_column].nunique()}
+- Number of categories: {dataset[args.label_column].nunique()}
+"""
+    with open(filename, "w") as file:
+        file.write(model_card_markdown)
+
+
 # From: https://huggingface.co/docs/transformers/training
 def drop_labels_with_few_samples(dataframe: pd.DataFrame, label_column: str, min_samples: int = 10) -> pd.DataFrame:
     """ Drops labels where the sample count is less than min_samples.
@@ -226,3 +259,6 @@ with open(os.path.join(final_result_directory, "classification_report.txt"), "w"
 with open(os.path.join(final_result_directory, "classification_report.json"), "w") as json_file:
     json.dump(classification_report(
         y_true, y_pred, target_names=labels, output_dict=True), json_file)
+
+write_model_card_markdown(os.path.join(final_result_directory, "model_card.md"),
+                          args, hf_labse_features, train_df, val_df, test_df)
